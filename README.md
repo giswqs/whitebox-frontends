@@ -1,6 +1,7 @@
 # WhiteboxTools Frontends 
 
 [![docs](https://img.shields.io/badge/whitebox-docs-brightgreen.svg)](https://jblindsay.github.io/wbt_book)
+[![Rust](https://img.shields.io/badge/whitebox-Rust-yellow.svg)](https://github.com/jblindsay/whitebox-tools)
 [![python](https://img.shields.io/badge/whitebox-Python-blue.svg)](https://github.com/giswqs/whitebox-python)
 [![R](https://img.shields.io/badge/whitebox-R-green.svg)](https://github.com/giswqs/whiteboxR)
 [![ArcGIS](https://img.shields.io/badge/whitebox-ArcGIS-brightgreen.svg)](https://github.com/giswqs/WhiteboxTools-ArcGIS)
@@ -15,7 +16,7 @@
 * [Python Package](#python)
 * [R Package](#r)
 * [ArcGIS Python Toolbox](#arcgis)
-* [QGIS Plugin](#QGIS)
+* [QGIS Plugin](#qgis)
 
 ## Python Package <a class='anchor' id='python'></a>
 
@@ -167,7 +168,8 @@ Open any tool within the toolbox and start using it. Check out the [WhiteboxTool
 
 ### Installation
 
-### Usage
+Please follow the installation guide [here](https://jblindsay.github.io/wbt_book/qgis_plugin.html). 
+
 
 ## Command-line Interface <a class='anchor' id='cmd'></a>
 
@@ -179,4 +181,37 @@ Open any tool within the toolbox and start using it. Check out the [WhiteboxTool
 
 ### Installation
 
+You can download a copy of the **WhiteboxTools** executable for your operating system from the [Geomorphometry and Hydrogeomatics Research Group website](https://jblindsay.github.io/ghrg/WhiteboxTools/download.html). Once you've downloaded WhiteboxTools and decompressed (unzipped) the folder, you can open a command prompot and start using it.  
+
 ### Usage
+
+*WhiteboxTools* is a command-line program and can be run either by calling it, with appropriate commands and arguments, from a terminal application, or, more conveniently, by calling it from a script. The following commands are recognized by the *WhiteboxTools* library:
+
+| Command           | Description                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| --cd, --wd        | Changes the working directory; used in conjunction with --run flag.                               |
+| -h, --help        | Prints help information.                                                                          |
+| -l, --license     | Prints the whitebox-tools license.                                                                |
+| --listtools       | Lists all available tools, with tool descriptions. Keywords may also be used, --listtools slope.  |
+| -r, --run         | Runs a tool; used in conjunction with --cd flag; -r="LidarInfo".                                  |
+| --toolbox         | Prints the toolbox associated with a tool; --toolbox=Slope.                                       |
+| --toolhelp        | Prints the help associated with a tool; --toolhelp="LidarInfo".                                   |
+| --toolparameters  | Prints the parameters (in json form) for a specific tool; --toolparameters=\"LidarInfo\".         |
+| -v                | Verbose mode. Without this flag, tool outputs will not be printed.                                |
+| --viewcode        | Opens the source code of a tool in a web browser; --viewcode=\"LidarInfo\".                       |
+| --version         | Prints the version information.                                                                   |
+
+Generally, the Unix convention is that single-letter arguments (options) use a single hyphen (e.g. -h) while word-arguments (longer, more descriptive argument names) use double hyphen (e.g. --help). The same rule is used for passing arguments to tools as well. Use the *--toolhelp* argument to print information about a specific tool (e.g. --toolhelp=Clump). Tool names can be specified either using the snake_case or CamelCase convention (e.g. *lidar_info* or *LidarInfo*).
+
+For examples of how to call functions and run tools from *WhiteboxTools*, see the *whitebox_example.py* Python script, which itself uses the *whitebox_tools.py* script as an interface for interacting with the executable file.
+
+In addition to direct command-line and script-based interaction, a very basic user-interface called *WB Runner* can be used to call the tools within the *WhiteboxTools* executable file, providing the required tool arguments.
+
+**Example command prompt:**
+
+```
+>>./whitebox_tools --wd='/Users/johnlindsay/Documents/data/' --run=DevFromMeanElev
+--input='DEM clipped.dep' --output='DEV raster.dep' -v
+```
+
+Notice the quotation marks (single or double) used around directories and filenames, and string tool arguments in general. Use the '-v' flag (run in verbose mode) to force the tool print output to the command prompt. Please note that the whitebox_tools executable file must have permission to be executed; on some systems, this may require setting special permissions. The '>>' is shorthand for the command prompt and is not intended to be typed. Also, the above example uses the forward slash character (/), the directory path separator used on unix based systems. On Windows, users should use the back slash character (\\) instead.
