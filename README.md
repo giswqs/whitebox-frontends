@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://www.buymeacoffee.com/giswqs)
 
-**WhiteboxTools** is an advanced geospatial data analysis platform developed by Prof. John Lindsay ([webpage](https://jblindsay.github.io/ghrg/index.html); [jblindsay](https://github.com/jblindsay)) at the University of Guelph's [Geomorphometry and Hydrogeomatics Research Group](https://jblindsay.github.io/ghrg/index.html). The **[WhiteboxTools](https://github.com/jblindsay/whitebox-tools)** library currently contains **412** tools, which are each grouped based on their main function into one of the following categories: Data Tools, GIS Analysis, Hydrological Analysis, Image Analysis, LiDAR Analysis, Mathematical and Statistical Analysis, Stream Network Analysis, and Terrain Analysis. For a listing of available tools, complete with documentation and usage details, please see the [WhiteboxTools User Manual](https://jblindsay.github.io/wbt_book/available_tools/index.html).
+**WhiteboxTools** is an advanced geospatial data analysis platform developed by Prof. [John Lindsay](https://github.com/jblindsay) at the University of Guelph's [Geomorphometry and Hydrogeomatics Research Group](https://jblindsay.github.io/ghrg/index.html). The **[WhiteboxTools](https://github.com/jblindsay/whitebox-tools)** library currently contains **412** tools, which are each grouped based on their main function into one of the following categories: Data Tools, GIS Analysis, Hydrological Analysis, Image Analysis, LiDAR Analysis, Mathematical and Statistical Analysis, Stream Network Analysis, and Terrain Analysis. For a listing of available tools, complete with documentation and usage details, please see the [WhiteboxTools User Manual](https://jblindsay.github.io/wbt_book/available_tools/index.html).
 
 **WhiteboxTools** can be accessed either from a [command prompt](#cmd) (i.e. terminal) or through one of the following front-ends:
 
@@ -32,13 +32,13 @@
 
 The **whitebox** Python package can be installed using the following command:
 
-```Python
+```python
 pip install whitebox
 ```
 
 The **whitebox** Python package is also available on [conda-forge](https://anaconda.org/conda-forge/whitebox), which can be installed using the following command:
 
-```Python
+```python
 conda install -c conda-forge whitebox
 ```
 
@@ -46,7 +46,7 @@ conda install -c conda-forge whitebox
 
 Tool names in the whitebox Python package can be called using the snake_case convention (e.g. lidar_info). See below for an example Python script.
 
-```Python
+```python
 import os
 import pkg_resources
 import whitebox
@@ -67,7 +67,7 @@ wbt.d_inf_flow_accumulation("breached.tif", "flow_accum.tif")
 
 **WhiteboxTools** also provides a Graphical User Interface (GUI) - **WhiteboxTools Runner**, which can be invoked using the following Python script:
 
-```Python
+```python
 import whitebox
 whitebox.Runner()
 ```
@@ -79,7 +79,7 @@ whitebox.Runner()
 ### Links
 
 * GitHub repo: <https://github.com/giswqs/whiteboxR>
-* [: <https://[.r-project.org/R/?group_id=2337>
+* R-Forge: <https://r-forge.r-project.org/R/?group_id=2337>
 * Documentation: <https://giswqs.github.io/whiteboxR/>
 * Maintainer: [Qiusheng Wu](https://wetlands.io)
 
@@ -126,7 +126,7 @@ wbt_d_inf_flow_accumulation(dem, "./flow_accum.tif")
 
 #### Step 1: Download the toolbox
 
-1. Go to the [WhiteboxTools-ArcGIS GitHub repo](https://github.com/giswqs/WhiteboxTools-ArcGIS) and Click the green button (**[Clone or download](https://gishub.org/whitebox-arcgis-download)**) on the upper-right corner of the page to download the toolbox as a zip file.
+1. Go to the [WhiteboxTools-ArcGIS GitHub repo](https://github.com/giswqs/WhiteboxTools-ArcGIS) and click the green button (**[Clone or download](https://gishub.org/whitebox-arcgis-download)**) on the upper-right corner of the page to download the toolbox as a zip file.
 
     ![](https://i.imgur.com/2xQkxCY.png)
 
@@ -181,11 +181,11 @@ Please follow the installation guide [here](https://jblindsay.github.io/wbt_book
 
 ### Installation
 
-You can download a copy of the **WhiteboxTools** executable for your operating system from the [Geomorphometry and Hydrogeomatics Research Group website](https://jblindsay.github.io/ghrg/WhiteboxTools/download.html). Once you've downloaded WhiteboxTools and decompressed (unzipped) the folder, you can open a command prompot and start using it.  
+You can download a copy of the **WhiteboxTools** executable for your operating system from the [Geomorphometry and Hydrogeomatics Research Group website](https://jblindsay.github.io/ghrg/WhiteboxTools/download.html). Once you've downloaded WhiteboxTools and decompressed (unzipped) the folder, you can open a command prompt and start using it.  
 
 ### Usage
 
-*WhiteboxTools* is a command-line program and can be run either by calling it, with appropriate commands and arguments, from a terminal application, or, more conveniently, by calling it from a script. The following commands are recognized by the *WhiteboxTools* library:
+**WhiteboxTools** is a command-line program and can be run by calling it with appropriate commands and arguments, from a terminal application. The following commands are recognized by the **WhiteboxTools** library:
 
 | Command           | Description                                                                                       |
 | ----------------- | ------------------------------------------------------------------------------------------------- |
