@@ -29,21 +29,90 @@
 
 ### Installation
 
+The **whitebox** Python package can be installed using the following command:
+
+```Python
+pip install whitebox
+```
+
+The **whitebox** Python package is also available on [conda-forge](https://anaconda.org/conda-forge/whitebox), which can be installed using the following command:
+
+```Python
+conda install -c conda-forge whitebox
+```
+
 ### Usage
+
+Tool names in the whitebox Python package can be called using the snake_case convention (e.g. lidar_info). See below for an example Python script.
+
+```Python
+import os
+import pkg_resources
+import whitebox
+
+wbt = whitebox.WhiteboxTools()
+print(wbt.version())
+print(wbt.help())
+
+# identify the sample data directory of the package
+data_dir = os.path.dirname(pkg_resources.resource_filename("whitebox", 'testdata/'))
+
+wbt.set_working_dir(data_dir)
+wbt.verbose = False
+wbt.feature_preserving_smoothing("DEM.tif", "smoothed.tif", filter=9)
+wbt.breach_depressions("smoothed.tif", "breached.tif")
+wbt.d_inf_flow_accumulation("breached.tif", "flow_accum.tif")
+```
+
+**WhiteboxTools** also provides a Graphical User Interface (GUI) - **WhiteboxTools Runner**, which can be invoked using the following Python script:
+
+```Python
+import whitebox
+whitebox.Runner()
+```
+![whitebox-runner](https://wetlands.io/file/images/whitebox.png)
+
 
 ## R Package <a class='anchor' id='r'></a>
 
 ### Links
 
 * GitHub repo: <https://github.com/giswqs/whiteboxR>
-* R-Forge: <https://r-forge.r-project.org/R/?group_id=2337>
+* [: <https://[.r-project.org/R/?group_id=2337>
 * Documentation: <https://giswqs.github.io/whiteboxR/>
 * Maintainer: [Qiusheng Wu](https://wetlands.io)
 
 
 ### Installation
 
+The **whitebox** R package is available on [R-Forge](https://r-forge.r-project.org/R/?group_id=2337), which can be installed using the following command: 
+
+```R
+install.packages("whitebox", repos="http://R-Forge.R-project.org")
+```
+
+You can alternatively install the development version of whitebox from [GitHub](https://github.com/giswqs/whiteboxR) as follows:
+
+```R
+if (!require(devtools)) install.packages('devtools')
+devtools::install_github("giswqs/whiteboxR")
+```
+
 ### Usage
+
+Tool names in the **whitebox** R package can be called using the snake_case (e.g. wbt_lidar_info). See below for an example.
+
+```R
+library(whitebox)
+
+# Set input raster DEM file
+dem <- system.file("extdata", "DEM.tif", package="whitebox")
+
+# Run tools
+wbt_feature_preserving_smoothing(dem, "./smoothed.tif", filter=9, verbose_mode = TRUE)
+wbt_breach_depressions("./smoothed.tif", "./breached.tif")
+wbt_d_inf_flow_accumulation(dem, "./flow_accum.tif")
+```
 
 ## ArcGIS Python Toolbox<a class='anchor' id='arcgis'></a>
 
@@ -54,7 +123,40 @@
 
 ### Installation
 
+#### Step 1: Download the toolbox
+
+1. Go to the [WhiteboxTools-ArcGIS GitHub repo](https://github.com/giswqs/WhiteboxTools-ArcGIS) and Click the green button (**[Clone or download](https://gishub.org/whitebox-arcgis-download)**) on the upper-right corner of the page to download the toolbox as a zip file.
+
+    ![](https://i.imgur.com/2xQkxCY.png)
+
+2. Depcompress the downloaded zip file.
+
+#### Step 2: Connect to the toolbox
+
+1. Navigate to the **Folder Connections** node in the catalog window tree.
+
+2. Right-click the node and choose **Connect To Folder**.
+
+    ![](https://i.imgur.com/uKK1Yel.png)
+
+3. Type the path or navigate to the **WhiteboxTools-ArcGIS** folder and click **OK**.
+
+4. Browse into the toolbox and start using its tools.
+
+    ![](https://i.imgur.com/JcdNBnt.png)
+
 ### Usage
+
+Open any tool within the toolbox and start using it. Check out the [WhiteboxTools User Mannual](https://jblindsay.github.io/wbt_book/) for more detailed help documentation of each tool.
+
+![](https://i.imgur.com/4c9RLZY.png)
+
+
+### Toolbox Screenshots
+
+![Toolbox-1](https://raw.githubusercontent.com/giswqs/WhiteboxTools-ArcGIS/master/screenshots/Toolbox-1.png)
+![Toolbox-2](https://raw.githubusercontent.com/giswqs/WhiteboxTools-ArcGIS/master/screenshots/Toolbox-2.png)
+![Toolbox-3](https://raw.githubusercontent.com/giswqs/WhiteboxTools-ArcGIS/master/screenshots/Toolbox-3.png)
 
 ## QGIS Plugin <a class='anchor' id='qgis'></a>
 
